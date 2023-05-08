@@ -6,7 +6,9 @@
         </header>
 
         <div class="options-container">
-            <Card v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
+            <RouterLink v-for="quiz in quizzes" :to="`/quiz/${quiz.id}`">
+                <Card :key="quiz.id" :quiz="quiz" />
+            </RouterLink>
             <!-- <div class="card" v-for="quiz in quizzes" :key="quiz.id">
               <img :src="quiz.img" alt="" />
               <h2>{{ quiz.name }}</h2>
@@ -20,6 +22,7 @@
 import q from "../data/quizzes.json";
 import { ref, watch } from "vue";
 import Card from "../components/Card.vue";
+import { RouterLink } from "vue-router";
 
 const quizzes = ref(q);
 const search = ref("");
