@@ -2,23 +2,29 @@
   <div class="container">
     <header>
       <h1>Quizzes</h1>
-      <input type="text" placeholder="Search..." />
+      <input v-model.trim="search" type="text" placeholder="Search..." />
     </header>
 
     <div class="options-container">
-      <div class="card">
-        <img src="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/5357/s960_Maths_English_blackboard_960x640.jpg" alt="" />
-        <h2>Math</h2>
-        <p>15 questions</p>
+      <div class="card" v-for="quiz in quizzes" :key="quiz.id">
+        <img :src="quiz.img" alt="" />
+        <h2>{{ quiz.name }}</h2>
+        <p>{{ quiz.questions.length }} questions</p>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-  export default {
-    
-  }
+<script setup>
+  import q from "./data/quizzes.json";
+  import {ref, watch} from "vue";
+
+  const quizzes = ref(q);
+  const search = ref('');
+
+  watch(search, () => {
+    quizzes.value = q.filter(quiz => quiz.name.toLowerCase().includes(search.value.toLowerCase()));
+  })
 </script>
 
 <style scoped>
