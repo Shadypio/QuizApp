@@ -46,10 +46,7 @@ const barPercentage = computed(() => `${(currentQuestionIndex.value / quiz.quest
 const onSelectOption = (isCorrect) => {
     if (isCorrect) {
         correctAnswers.value++;
-    } else {
-        alert('Incorrect')
     }
-
     if( (quiz.questions.length - 1) === currentQuestionIndex.value)
     {
         showResults.value = true;
