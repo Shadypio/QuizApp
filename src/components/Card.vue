@@ -14,7 +14,4 @@ const props = defineProps({
     quiz: Object,
 });
 
-const navigateToQuiz = () => {
-    router.push(`/quiz/${quiz.id}`)
-}
 </script>
