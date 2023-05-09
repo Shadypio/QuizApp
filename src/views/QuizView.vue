@@ -14,5 +14,3 @@ const quizId = route.params.id;
 const quiz = q.find((quiz) => quiz.id === parseInt(quizId));
 </script>
 
-<style scoped>
-</style>

@@ -1,20 +1,19 @@
 <template>
-    
-    <div class="container">
-        <header>
-            <h1>Quizzes</h1>
-            <input v-model.trim="search" type="text" placeholder="Search..." />
+    <div class="max-w-screen-lg mx-auto my-0">
+        <header class="my-2.5 flex items-center">
+            <h1 class="font-bold mr-[30px]">Quizzes</h1>
+            <input
+                class="border-none p-2.5 rounded bg-[rgba(128,128,128,0.1)]"
+                v-model.trim="search"
+                type="text"
+                placeholder="Search..."
+            />
         </header>
 
-        <div class="options-container">
+        <div class="flex flex-wrap mt-10">
             <RouterLink v-for="quiz in quizzes" :to="`/quiz/${quiz.id}`">
                 <Card :key="quiz.id" :quiz="quiz" />
             </RouterLink>
-            <!-- <div class="card" v-for="quiz in quizzes" :key="quiz.id">
-              <img :src="quiz.img" alt="" />
-              <h2>{{ quiz.name }}</h2>
-              <p>{{ quiz.questions.length }} questions</p>
-            </div> -->
         </div>
     </div>
 </template>
@@ -36,34 +35,8 @@ watch(search, () => {
 });
 </script>
 
-<style scoped>
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-header {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
-
-header h1 {
-    font-weight: bold;
-    margin-right: 30px;
-}
-
-header input {
-    border: none;
-    background-color: rgba(128, 128, 128, 0.1);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.options-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-</style>
+<!-- <div class="card" v-for="quiz in quizzes" :key="quiz.id">
+              <img :src="quiz.img" alt="" />
+              <h2>{{ quiz.name }}</h2>
+              <p>{{ quiz.questions.length }} questions</p>
+</div> -->

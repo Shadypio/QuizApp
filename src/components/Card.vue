@@ -1,8 +1,8 @@
 <template>
-    <div class="card">
-        <img :src="quiz.img" alt="" />
-        <div class="card-text">
-            <h2>{{ quiz.name }}</h2>
+    <div class="w-[310px] rounded overflow-hidden mr-5 mb-8 shadow-[1px_1px_10px_rgba(0,0,0,0.1)] px-2.5 py-0">
+        <img class="w-full h-[190px] m-0" :src="quiz.img" alt="" />
+        <div class="px-2.5 py-0">
+            <h2 class="font-bold">{{ quiz.name }}</h2>
             <p>{{ quiz.questions.length }} questions</p>
         </div>
     </div>
@@ -14,29 +14,3 @@ const props = defineProps({
     quiz: Object,
 });
 </script>
-
-<style scoped>
-/* CARD */
-.card {
-    width: 310px;
-    border-radius: 2%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-right: 20px;
-    margin-bottom: 35px;
-}
-
-.card img {
-    width: 100%;
-    height: 190px;
-    margin: 0;
-}
-
-.card .card-text {
-    padding: 0 10px;
-}
-
-.card .card-text h2 {
-    font-weight: bold;
-}
-</style>
