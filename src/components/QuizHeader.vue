@@ -1,8 +1,8 @@
 <template>
     <header class="mt-5">
-        <h4 class="text-lg">Question {{ questionStatus }}</h4>
-        <div class="bar">
-            <div class="completion" :style="{width: barPercentage}"></div>
+        <h4 class="text-2xl">Question {{ questionStatus }}</h4>
+        <div class="w-[300px] h-12 border-[3px] border-solid border-[bisque]">
+            <div class="h-full bg-[bisque]" :style="{width: barPercentage}"></div>
         </div>
     </header>
 </template>
@@ -16,25 +16,3 @@ const {questionStatus, barPercentage} = defineProps([
 ]);
 
 </script>
-
-<style scoped>
-header {
-    margin-top: 20px;
-}
-
-header h4 {
-    font-size: 30px;
-}
-
-.bar {
-    width: 300px;
-    height: 50px;
-    border: 3px solid bisque;
-}
-
-.completion {
-    height: 100%;
-    width: 0%;
-    background-color: bisque;
-}
-</style>
